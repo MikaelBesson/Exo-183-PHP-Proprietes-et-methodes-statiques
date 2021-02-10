@@ -1,6 +1,4 @@
-<?php
-
-/**
+<!--
  * 1. Créez une classe VOD et définissez les propriétés suivantes :
  *    - Créez une propriété films qui sera un tableau contenant 5 noms de films au choix.
  *    - Créez une propriété tarif qui contiendra........ le tarif de l'abonnement
@@ -16,4 +14,25 @@
  * 4. Invoquez la méthode addAbo() plusieurs fois pour les les objets créés, le nombre de fois n'a pas d'importance.
  *
  * 5. Invoquez la méthode vous permettant de récupérer le nombre total d'abonnements aux plateformes VOD de manière à afficher le nombre total d'abonnements.
- */
+-->
+<?php
+require "./classes/VOD.php";
+
+$netflix = new VOD('8 euro');
+$netflix->setAbonne(10);
+echo "liste des films : <br>";
+foreach ($netflix->getFilm() as $film){
+    echo $film."<br>";
+}
+echo "<br><br>";
+echo "prix de l'abonnement netflix ".$netflix->getTarif()."<br>";
+echo "<br>";
+
+$prime = new VOD('8');
+$prime->setTarif("10 euro");
+$prime->setAbonne(5);
+
+echo "prix de l'abonnement prime ".$prime->getTarif()."<br>";
+echo "<br>";
+echo "nombre d'abonne au total ".VOD::getAbonne()."<br>";
+
